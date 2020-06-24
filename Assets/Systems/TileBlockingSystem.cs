@@ -1,6 +1,4 @@
 ﻿using Unity.Entities;
-using Unity.Mathematics;
-using UnityEngine;
 
 [UpdateInGroup(typeof(InitializationSystemGroup))]
 public class TileBlockingSystem : SystemBase
