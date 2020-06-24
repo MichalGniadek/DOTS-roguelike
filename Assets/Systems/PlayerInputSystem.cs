@@ -4,35 +4,31 @@ using UnityEngine;
 
 public class PlayerInputSystem : SystemBase
 {
-    enum Direction { NONE, UP, DOWN, LEFT, RIGHT };
-
     protected override void OnUpdate()
     {
-        Direction direction = Direction.NONE;
-        if (Input.GetKeyDown(KeyCode.UpArrow)) direction = Direction.UP;
-        else if (Input.GetKeyDown(KeyCode.DownArrow)) direction = Direction.DOWN;
-        else if (Input.GetKeyDown(KeyCode.LeftArrow)) direction = Direction.LEFT;
-        else if (Input.GetKeyDown(KeyCode.RightArrow)) direction = Direction.RIGHT;
+        Direction direction = (Direction)(-1);
+        if (Input.GetKeyDown(KeyCode.UpArrow)) direction = Direction.Up;
+        else if (Input.GetKeyDown(KeyCode.DownArrow)) direction = Direction.Down;
+        else if (Input.GetKeyDown(KeyCode.LeftArrow)) direction = Direction.Left;
+        else if (Input.GetKeyDown(KeyCode.RightArrow)) direction = Direction.Right;
 
         var map = GameManager.instance.map;
 
-        if (direction != Direction.NONE)
+        if ((int)direction != (-1))
         {
             Entities.WithAll<PlayerInput>().ForEach(
                 (Entity entity, ref GridPosition position) =>
                 {
-                    int2 targetPosition = position.Value;
+                    int2 targetPosition = position.Value + direction.ToInt2();
 
-                    if (direction == Direction.UP) targetPosition.y++;
-                    else if (direction == Direction.DOWN) targetPosition.y--;
-                    else if (direction == Direction.LEFT) targetPosition.x--;
-                    else if (direction == Direction.RIGHT) targetPosition.x++;
-
-                    Entity targetTileEntity = map.GetTileEntity(targetPosition);
-                    Tile targetTile = GetComponent<Tile>(targetTileEntity);
-                    if (!targetTile.isMovementBlocked)
+                    if (map.InBounds(targetPosition))
                     {
-                        position.Value = targetPosition;
+                        Tile targetTile =
+                            GetComponent<Tile>(map.GetTileEntity(targetPosition));
+                        if (!targetTile.isMovementBlocked)
+                        {
+                            position.Value = targetPosition;
+                        }
                     }
                 })
             .ScheduleParallel();

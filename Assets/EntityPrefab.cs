@@ -8,20 +8,30 @@ public class EntityPrefab
 
     public GameObject go;
     private Entity entity;
+    public Entity Entity
+    {
+        get
+        {
+            if (entity == Entity.Null) Convert();
+            return entity;
+        }
+    }
 
     public static implicit operator Entity(EntityPrefab prefab)
     {
-        if (prefab.entity == Entity.Null)
-        {
-            if (settings == null)
-            {
-                var world = World.DefaultGameObjectInjectionWorld;
-                settings = GameObjectConversionSettings.FromWorld(world, null);
-            }
-
-            prefab.entity = GameObjectConversionUtility
-                .ConvertGameObjectHierarchy(prefab.go, settings);
-        }
+        if (prefab.entity == Entity.Null) prefab.Convert();
         return prefab.entity;
+    }
+
+    void Convert()
+    {
+        if (settings == null)
+        {
+            var world = World.DefaultGameObjectInjectionWorld;
+            settings = GameObjectConversionSettings.FromWorld(world, null);
+        }
+
+        entity = GameObjectConversionUtility
+            .ConvertGameObjectHierarchy(go, settings);
     }
 }
