@@ -4,16 +4,11 @@ using UnityEngine;
 [UpdateInGroup(typeof(InitializationSystemGroup))]
 public class TileUpdateSystem : SystemBase
 {
-    // All this is probably going to get changed
-    // because two entites can walk/ get pushed
-    // into the same tile if it happend at the same tick
-    // There probably need to be some kind of helper
-    // function that moves entity from one tile to another.
     protected override void OnUpdate()
     {
         var ecb = ecbSystem.CreateCommandBuffer();
 
-        Entities.WithoutBurst().WithStructuralChanges().ForEach(
+        Entities.WithoutBurst().ForEach(
         (int entityInQueryIndex, Entity entity, SpriteRenderer sprite, in Tile tile, in TileChanger tileChanger) =>
         {
             var newSprite = EntityManager
@@ -45,14 +40,15 @@ public class TileUpdateSystem : SystemBase
             (Entity entity, ref GridPosition position) =>
             {
                 Entity tileEntity = map.GetTileEntity(position.Value);
-                Tile tile = GetComponent<Tile>(tileEntity);
+                var tile = GetComponent<Tile>(tileEntity);
 
+                // Add a check if an entity already exists here
                 tile.blockingEntity = entity;
                 tile.isMovementBlocked = true;
 
                 SetComponent(tileEntity, tile);
             }
-        ).Run();// Not ScheduleParallel because of SetComponent()
+        ).Run();
 
         ecbSystem.AddJobHandleForProducer(Dependency);
     }

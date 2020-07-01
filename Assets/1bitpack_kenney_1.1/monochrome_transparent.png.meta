@@ -1309,7 +1309,7 @@ TextureImporter:
     second: monochrome_transparent_434
   - first:
       213: 7904145523321504660
-    second: monochrome_transparent_435
+    second: door
   - first:
       213: -6473466029450095126
     second: monochrome_transparent_436
@@ -2560,10 +2560,10 @@ TextureImporter:
     second: monochrome_transparent_851
   - first:
       213: -1289392125154465149
-    second: monochrome_transparent_852
+    second: one
   - first:
       213: 2795155915836485695
-    second: monochrome_transparent_853
+    second: two
   - first:
       213: -8277382768282881923
     second: monochrome_transparent_854
@@ -4885,7 +4885,7 @@ TextureImporter:
     second: monochrome_transparent_434
   - first:
       213: -70286051652185261
-    second: monochrome_transparent_435
+    second: door
   - first:
       213: 8982722694515054157
     second: monochrome_transparent_436
@@ -6136,10 +6136,10 @@ TextureImporter:
     second: monochrome_transparent_851
   - first:
       213: 7837838680461447430
-    second: monochrome_transparent_852
+    second: one
   - first:
       213: 4247498887562995127
-    second: monochrome_transparent_853
+    second: two
   - first:
       213: 3646091270286939993
     second: monochrome_transparent_854
@@ -16014,7 +16014,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome_transparent_435
+      name: door
       rect:
         serializedVersion: 2
         x: 51
@@ -24771,7 +24771,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome_transparent_852
+      name: one
       rect:
         serializedVersion: 2
         x: 612
@@ -24792,7 +24792,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome_transparent_853
+      name: two
       rect:
         serializedVersion: 2
         x: 629

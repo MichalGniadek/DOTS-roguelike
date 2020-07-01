@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2438290772853280745}
   - component: {fileID: 2438290772853280747}
-  - component: {fileID: 2438290772853280744}
   - component: {fileID: 2438290772853280746}
+  - component: {fileID: 2874969303624550588}
   m_Layer: 0
-  m_Name: Tunneler
+  m_Name: Roomer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,25 +48,6 @@ MonoBehaviour:
   Value:
     x: 0
     y: 0
---- !u!114 &2438290772853280744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2438290772853280742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e79c715559eee641be8b046e7aa2063, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  direction: 0
-  lifeExpectancy: 250
-  tunnelSize: 3
-  sizeChangeProbability: 0.0005
-  turnProbability: 0.02
-  spawnTunnelerProbability: 0.01
-  spawnRoomerProbability: 0.3
 --- !u!212 &2438290772853280746
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -108,7 +89,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -2542404948912927477, guid: 6e9c5e5e0cf99c84c8dff91602e92791,
     type: 3}
-  m_Color: {r: 0.8113208, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0.8117647, b: 0.2800058, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -118,3 +99,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2874969303624550588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2438290772853280742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5552b23c70521924fb92884e3daabc9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: 0
+  roomSize: 0

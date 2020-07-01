@@ -9,7 +9,11 @@ public class GameManager : MonoBehaviour
 
     public EntityPrefab floorPrefab = null;
     public EntityPrefab wallPrefab = null;
+    public EntityPrefab futureRoomTile = null;
+    public EntityPrefab futureTunnelTile = null;
     public EntityPrefab tunnelerPrefab = null;
+    public EntityPrefab roomerPrefab = null;
+    public EntityPrefab doorPrefab = null;
 
     public Map map;
 
@@ -39,27 +43,7 @@ public class GameManager : MonoBehaviour
                 new GridPosition { Value = new int2(map.size.x / 2, map.size.y / 2) }
             );
             var tunnelerData = entityManager.GetComponentData<Tunneler>(tunneler);
-            tunnelerData.direction = Direction.Up;
-            entityManager.SetComponentData(tunneler, tunnelerData);
-        }
-
-        {
-            Entity tunneler = entityManager.Instantiate(tunnelerPrefab);
-            entityManager.SetComponentData(tunneler,
-                new GridPosition { Value = new int2(2, 2) }
-            );
-            var tunnelerData = entityManager.GetComponentData<Tunneler>(tunneler);
-            tunnelerData.direction = Direction.Up;
-            entityManager.SetComponentData(tunneler, tunnelerData);
-        }
-
-        {
-            Entity tunneler = entityManager.Instantiate(tunnelerPrefab);
-            entityManager.SetComponentData(tunneler,
-                new GridPosition { Value = new int2(map.size.x - 2, map.size.y - 2) }
-            );
-            var tunnelerData = entityManager.GetComponentData<Tunneler>(tunneler);
-            tunnelerData.direction = Direction.Down;
+            tunnelerData.direction = (Direction)UnityEngine.Random.Range(0, 4);
             entityManager.SetComponentData(tunneler, tunnelerData);
         }
     }

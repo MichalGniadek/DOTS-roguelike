@@ -60,6 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 475026a8973bdb543ba5cecd6bca6c80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   blockingEntity: {fileID: 0}
   nonBlockingEntity: {fileID: 0}
   tileBlocksVision: 0

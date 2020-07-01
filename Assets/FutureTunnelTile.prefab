@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2438290772853280742
+--- !u!1 &1470231708801676552
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2438290772853280745}
-  - component: {fileID: 2438290772853280747}
-  - component: {fileID: 2438290772853280744}
-  - component: {fileID: 2438290772853280746}
+  - component: {fileID: 1470231708801676551}
+  - component: {fileID: 1470231708801676549}
+  - component: {fileID: 1470231708801676550}
+  - component: {fileID: 1470231708801676548}
   m_Layer: 0
-  m_Name: Tunneler
+  m_Name: FutureTunnelTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2438290772853280745
+--- !u!4 &1470231708801676551
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2438290772853280742}
+  m_GameObject: {fileID: 1470231708801676552}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2438290772853280747
+--- !u!114 &1470231708801676549
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2438290772853280742}
+  m_GameObject: {fileID: 1470231708801676552}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee4eeba970ec9c24c8875e7466c9ed4c, type: 3}
@@ -48,32 +48,33 @@ MonoBehaviour:
   Value:
     x: 0
     y: 0
---- !u!114 &2438290772853280744
+--- !u!114 &1470231708801676550
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2438290772853280742}
+  m_GameObject: {fileID: 1470231708801676552}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e79c715559eee641be8b046e7aa2063, type: 3}
+  m_Script: {fileID: 11500000, guid: 475026a8973bdb543ba5cecd6bca6c80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: 0
-  lifeExpectancy: 250
-  tunnelSize: 3
-  sizeChangeProbability: 0.0005
-  turnProbability: 0.02
-  spawnTunnelerProbability: 0.01
-  spawnRoomerProbability: 0.3
---- !u!212 &2438290772853280746
+  type: 3
+  blockingEntity: {fileID: 0}
+  nonBlockingEntity: {fileID: 0}
+  tileBlocksVision: 1
+  tileBlocksMovement: 1
+  isVisionBlocked: 0
+  isMovementBlocked: 0
+  IsSpaceForNonBlocking: 0
+--- !u!212 &1470231708801676548
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2438290772853280742}
+  m_GameObject: {fileID: 1470231708801676552}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -106,9 +107,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2542404948912927477, guid: 6e9c5e5e0cf99c84c8dff91602e92791,
+  m_Sprite: {fileID: 2795155915836485695, guid: 6e9c5e5e0cf99c84c8dff91602e92791,
     type: 3}
-  m_Color: {r: 0.8113208, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

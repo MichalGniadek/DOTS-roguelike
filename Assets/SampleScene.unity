@@ -168,8 +168,16 @@ MonoBehaviour:
     go: {fileID: 1470231708801676552, guid: ee351e989c5ce8e439423c04629e009f, type: 3}
   wallPrefab:
     go: {fileID: 1470231708801676552, guid: c9c3536ee13920c48b28182e52115e57, type: 3}
+  futureRoomTile:
+    go: {fileID: 1470231708801676552, guid: 8cca87ce954c1b74289eb42b9ec0dd18, type: 3}
+  futureTunnelTile:
+    go: {fileID: 1470231708801676552, guid: e356ca79d76c7c24d9a1bc78e64cc0f5, type: 3}
   tunnelerPrefab:
     go: {fileID: 2438290772853280742, guid: 40954ed76f1b7cb4d8c120f22e24230e, type: 3}
+  roomerPrefab:
+    go: {fileID: 2438290772853280742, guid: 0773bf6d26dc0894ba22df614d4a7253, type: 3}
+  doorPrefab:
+    go: {fileID: 1470231708801676552, guid: f8a6f4e1b1342644fa8882e63e0b5499, type: 3}
   map:
     size: {x: 100, y: 100}
 --- !u!1 &653260035
