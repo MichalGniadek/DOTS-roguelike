@@ -30,7 +30,9 @@ public class GameManager : MonoBehaviour
             for (int y = -1; y <= map.size.y; y++)
             {
                 Entity entity = entityManager.Instantiate(wallPrefab);
+#if UNITY_EDITOR
                 entityManager.SetName(entity, $"Tile({x},{y})");
+#endif
                 entityManager.SetComponentData(entity,
                     new GridPosition { Value = new int2(x, y) });
                 if (map.InBounds(x, y))
