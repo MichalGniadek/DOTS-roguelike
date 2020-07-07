@@ -40,18 +40,8 @@ public class TunnelerSystem : SystemBase
                              i <= tunneler.tunnelSize / 2;
                              i++)
                     {
-                        Entity tileEntity =
-                            map.GetTileEntity(position.Value + i * digDirection);
-
-                        if (tileEntity != Entity.Null)
-                        {
-                            EntityManager.AddComponent<TileChanger>(tileEntity);
-                            EntityManager.SetComponentData(tileEntity,
-                            new TileChanger
-                            {
-                                newTilePrefab = futureTunnelTile
-                            });
-                        }
+                        int2 digTilePosition = position.Value + i * digDirection;
+                        map.SetTileType(digTilePosition, TileType.Floor);
                     }
 
                     // Tunnels
@@ -127,18 +117,8 @@ public class TunnelerSystem : SystemBase
                             for (int y = -tunneler.tunnelSize / 2;
                                     y <= tunneler.tunnelSize / 2; y++)
                             {
-                                Entity tileEntity =
-                                    map.GetTileEntity(position.Value + new int2(x, y));
-
-                                if (tileEntity != Entity.Null)
-                                {
-                                    EntityManager.AddComponent<TileChanger>(tileEntity);
-                                    EntityManager.SetComponentData(tileEntity,
-                                    new TileChanger
-                                    {
-                                        newTilePrefab = futureTunnelTile
-                                    });
-                                }
+                                map.SetTileType(position.Value + new int2(x, y),
+                                    TileType.Floor);
                             }
                     }
                 }

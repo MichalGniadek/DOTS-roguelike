@@ -180,6 +180,38 @@ MonoBehaviour:
     go: {fileID: 1470231708801676552, guid: f8a6f4e1b1342644fa8882e63e0b5499, type: 3}
   map:
     size: {x: 100, y: 100}
+  tilesData:
+  - name: Floor
+    sprite: {fileID: -8409067677610051592, guid: 6e9c5e5e0cf99c84c8dff91602e92791,
+      type: 3}
+    tileBlocksVision: 0
+    tileBlocksMovement: 0
+  - name: Wall
+    sprite: {fileID: -539166265751489742, guid: 6e9c5e5e0cf99c84c8dff91602e92791,
+      type: 3}
+    tileBlocksVision: 1
+    tileBlocksMovement: 1
+  - name: FutureRoom
+    sprite: {fileID: -1289392125154465149, guid: 6e9c5e5e0cf99c84c8dff91602e92791,
+      type: 3}
+    tileBlocksVision: 0
+    tileBlocksMovement: 0
+  - name: FutureTunnel
+    sprite: {fileID: 2795155915836485695, guid: 6e9c5e5e0cf99c84c8dff91602e92791,
+      type: 3}
+    tileBlocksVision: 0
+    tileBlocksMovement: 0
+  - name: Door
+    sprite: {fileID: 7904145523321504660, guid: 6e9c5e5e0cf99c84c8dff91602e92791,
+      type: 3}
+    tileBlocksVision: 1
+    tileBlocksMovement: 0
+  - name: OutOfBounds
+    sprite: {fileID: 0}
+    tileBlocksVision: 0
+    tileBlocksMovement: 0
+  tileRendererPrefab: {fileID: 1470231708801676552, guid: b131a22c9738dfd428ef78d3383915d1,
+    type: 3}
 --- !u!1 &653260035
 GameObject:
   m_ObjectHideFlags: 0

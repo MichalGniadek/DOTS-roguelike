@@ -35,20 +35,39 @@ public class TileUpdateSystem : SystemBase
         }).ScheduleParallel();
 
         var map = GameManager.instance.map;
+        var tileRenderes = GameManager.instance.tileRenderes;
+        var tilesData = GameManager.instance.tilesData;
 
-        Entities.WithAll<Character>().ForEach(
-            (Entity entity, ref GridPosition position) =>
-            {
-                Entity tileEntity = map.GetTileEntity(position.Value);
-                var tile = GetComponent<Tile>(tileEntity);
+        // Entities.WithAll<Character>().ForEach(
+        //     (Entity entity, ref GridPosition position) =>
+        //     {
+        //         Entity tileEntity = map.GetTileEntity(position.Value);
+        //         var tile = GetComponent<Tile>(tileEntity);
 
-                // Add a check if an entity already exists here
-                tile.blockingEntity = entity;
-                tile.isMovementBlocked = true;
+        //         // Add a check if an entity already exists here
+        //         tile.blockingEntity = entity;
+        //         tile.isMovementBlocked = true;
 
-                SetComponent(tileEntity, tile);
-            }
-        ).Run();
+        //         SetComponent(tileEntity, tile);
+        //     }
+        // ).Run();
+
+        Entities.WithoutBurst().ForEach((PlayerInput p) =>
+        {
+            for (int x = 0; x < map.size.x; x++)
+                for (int y = 0; y < map.size.y; y++)
+                {
+                    if (map.GetTile(x, y).changed)
+                    {
+                        var e = map.GetTile(x, y);
+                        e.changed = false;
+                        map.SetTile(x, y, e);
+
+                        tileRenderes[y + map.size.x * x].sprite =
+                            tilesData[(int)map.GetTileType(x, y)].sprite;
+                    }
+                }
+        }).Run();
 
         ecbSystem.AddJobHandleForProducer(Dependency);
     }

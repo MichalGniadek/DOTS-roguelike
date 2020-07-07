@@ -24,19 +24,10 @@ public class RoomerSystem : SystemBase
                 for (int y = -1 - roomer.roomSize / 2; y <= 1 + roomer.roomSize / 2; y++)
                 {
                     int2 tilePosition = roomCenter + new int2(x, y);
-                    Entity tileEntity = map.GetTileEntity(tilePosition);
-                    if (tileEntity == Entity.Null)
+                    if (map.GetTileType(tilePosition) != TileType.Wall)
                     {
                         canBuild = false;
                         break;
-                    }
-                    else
-                    {
-                        var tile = EntityManager.GetComponentData<Tile>(tileEntity);
-                        if (tile.type != Tile.Type.Wall)
-                        {
-                            canBuild = false;
-                        }
                     }
                 }
                 if (!canBuild) break;
@@ -44,35 +35,15 @@ public class RoomerSystem : SystemBase
 
             if (canBuild)
             {
-                // Build door
-                {
-                    Entity tileEntity = map.GetTileEntity(position.Value);
-
-                    if (tileEntity != Entity.Null)
-                    {
-                        EntityManager.AddComponent<TileChanger>(tileEntity);
-                        EntityManager.SetComponentData(tileEntity,
-                        new TileChanger
-                        {
-                            newTilePrefab = doorTile
-                        });
-                    }
-                }
+                map.SetTileType(position.Value, TileType.Door);
 
                 // Build room
                 for (int x = -roomer.roomSize / 2; x <= roomer.roomSize / 2; x++)
                 {
                     for (int y = -roomer.roomSize / 2; y <= roomer.roomSize / 2; y++)
                     {
-                        int2 tilePosition = roomCenter + new int2(x, y);
-                        Entity tileEntity = map.GetTileEntity(tilePosition);
-
-                        EntityManager.AddComponent<TileChanger>(tileEntity);
-                        EntityManager.SetComponentData(tileEntity,
-                        new TileChanger
-                        {
-                            newTilePrefab = futureRoomTile
-                        });
+                        map.SetTileType(roomCenter + new int2(x, y),
+                            TileType.Floor);
                     }
                 }
             }

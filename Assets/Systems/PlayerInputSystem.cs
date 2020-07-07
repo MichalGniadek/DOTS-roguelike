@@ -1,4 +1,6 @@
-﻿using Unity.Entities;
+﻿using System.Collections.Generic;
+using Unity.Collections;
+using Unity.Entities;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -20,15 +22,9 @@ public class PlayerInputSystem : SystemBase
                 (Entity entity, ref GridPosition position) =>
                 {
                     int2 targetPosition = position.Value + direction.ToInt2();
-
-                    if (map.InBounds(targetPosition))
+                    if (!map.GetTileData(targetPosition).tileBlocksMovement)
                     {
-                        Tile targetTile =
-                            GetComponent<Tile>(map.GetTileEntity(targetPosition));
-                        if (!targetTile.isMovementBlocked)
-                        {
-                            position.Value = targetPosition;
-                        }
+                        position.Value = targetPosition;
                     }
                 })
             .ScheduleParallel();
